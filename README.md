@@ -32,7 +32,9 @@ In the beginning of a track, it requests a route to be created, then continuousl
 
 * to be able to run the tests on local environment do:
     `virtualenv test`
+    
     `source test/bin/activate`
+    
     `pip install -r requirements.test.txt`
     
 * to run the original test:    
