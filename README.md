@@ -5,6 +5,9 @@ Description
 a small tracking service that receives data from a GPS tracker device.
 
 In the beginning of a track, it requests a route to be created, then continuously populates it with data points (WGS84 coordinates). Eventually a request to calculate the length of the route is made.
+There is an additional endpoint that returns the longest route of the day.
+
+To see all the available endpoints go to the homepage http://localhost:5000.
 
 ### System requirements
 
@@ -31,6 +34,7 @@ In the beginning of a track, it requests a route to be created, then continuousl
     virtualenv
 
 * to be able to run the tests on local environment do:
+    
     `virtualenv test`
     
     `source test/bin/activate`

@@ -19,6 +19,7 @@ from django.urls import path
 from tracker import views
 
 urlpatterns = [
+    path(r'', views.entrypoint, name='entrypoint'),
     path(r'route/', views.route, name='route'),
     path(r'route/<int:route_id>/', views.delete_route, name='delete_route'),
     path(r'route/<int:route_id>/way_point/', views.way_point, name='way_point'),

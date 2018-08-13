@@ -6,3 +6,8 @@ postgres-data/
 .idea/
 
 *.egg-info/
+
+test/
+venv/
+
+.pytest_cache/

@@ -2,11 +2,28 @@ import json
 from datetime import datetime, timedelta
 
 from django.http import JsonResponse
+from django.urls import reverse
 from django.views.decorators.http import require_http_methods
 from geopy.distance import distance
 
 from tracker.models import Route
 
+
+@require_http_methods(["GET"])
+def entrypoint(request):
+    urls = {
+        'tracker_services_endpoints': {
+            'route': request.build_absolute_uri(reverse('route')),
+            'way_point': request.build_absolute_uri(reverse('way_point', kwargs={'route_id': 1})),
+            'route_length': request.build_absolute_uri(reverse('length', kwargs={'route_id': 1})),
+            'longest_route_of_the_day': request.build_absolute_uri(
+                reverse(
+                    'longest_route', kwargs={'date': datetime.strftime(datetime.today(), "%Y-%m-%d")}
+                )
+            )
+        }
+    }
+    return JsonResponse(urls)
 
 @require_http_methods(["POST"])
 def route(request):
